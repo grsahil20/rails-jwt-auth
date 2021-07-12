@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class Api::V1::HomeController < Api::V1::ApplicationController
 
   before_action :authenticate_user!
 
