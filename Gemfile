@@ -13,7 +13,7 @@ gem 'puma', '~> 5.0'
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
+# Use Active Model has_secure_  ssword
 # gem 'bcrypt', '~> 3.1.7'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -36,5 +36,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'kaminari'
 gem 'devise'
 gem 'devise-jwt'

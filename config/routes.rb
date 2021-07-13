@@ -9,6 +9,11 @@ Rails.application.routes.draw do
 	namespace :api do
 		namespace :v1 do
 			get "test", to: 'home#test'
+			resources :tweets, only: [:index, :show, :create, :delete]
+			resources :users, only: [:index, :show] do
+				resources :tweets, only: [:index], controller: 'users/tweets'
+			end
+
 		end
 	end
 end
