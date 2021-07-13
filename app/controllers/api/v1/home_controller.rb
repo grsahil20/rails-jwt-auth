@@ -17,6 +17,8 @@ class Api::V1::HomeController < Api::V1::ApplicationController
           user.tweets.create(body: Faker::Quotes::Rajnikanth.joke)
         end
       end
+    rescue
+      nil
     end
     render json: { users: User.count, tweets: Tweet.count}
   end
