@@ -3,7 +3,7 @@ class Api::V1::Users::TweetsController < Api::V1::ApplicationController
   before_action :set_user
 
   def index
-    render json: { users: @user.tweets.order(:created_at).page(params[:page]) }
+    render json: paginate(scope: @user.tweets.order(:created_at))
   end
 
   private

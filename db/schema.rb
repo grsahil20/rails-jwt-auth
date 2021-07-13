@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_12_183841) do
+ActiveRecord::Schema.define(version: 2021_07_13_204034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "follower_ships", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "follower_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id"], name: "index_follower_ships_on_follower_id"
+    t.index ["user_id"], name: "index_follower_ships_on_user_id"
+  end
 
   create_table "jwt_blacklists", force: :cascade do |t|
     t.string "jti"
@@ -47,6 +56,8 @@ ActiveRecord::Schema.define(version: 2021_07_12_183841) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "follower_ships", "users"
+  add_foreign_key "follower_ships", "users", column: "follower_id"
   add_foreign_key "jwt_blacklists", "users", column: "users_id", on_delete: :cascade
   add_foreign_key "tweets", "users"
 end
