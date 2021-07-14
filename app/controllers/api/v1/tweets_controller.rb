@@ -9,9 +9,9 @@ class Api::V1::TweetsController < Api::V1::ApplicationController
   def create
     tweet =  current_user.tweets.create(tweet_params)
     if tweet.valid?
-      render json: { tweet: current_user.tweets.create(tweet_params) }
+      render json: { tweet: tweet }
     else
-      render json: { tweet: current_user.tweets.create(tweet_params), errors: tweet.errors }
+      render json: { tweet: tweet, errors: tweet.errors }
     end
   end
 
