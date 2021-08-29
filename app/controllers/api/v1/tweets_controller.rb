@@ -1,10 +1,11 @@
 class Api::V1::TweetsController < Api::V1::ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create, :destroy]
+
   before_action :set_tweet, only: [:destroy]
 
   def index
-    render json: paginate(scope: current_user.tweets.order(:created_at))
+    render json: paginate(scope: Tweet.order(:created_at))
   end
 
   def create

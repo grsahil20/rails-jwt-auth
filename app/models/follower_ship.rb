@@ -10,7 +10,12 @@
 #
 class FollowerShip < ApplicationRecord
 
-    belongs_to :user
-    belongs_to :follower, class_name: "User"
+  belongs_to :user
+  belongs_to :follower, class_name: "User"
 
+  def hello
+    puts "hello"
   end
+
+
+end
