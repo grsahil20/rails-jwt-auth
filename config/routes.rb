@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 				resources :tweets, only: [:index], controller: 'users/tweets'
 			end
 
+			resources :asset_pairs, only: [:index]
+
 		end
 	end
 end
